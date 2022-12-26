@@ -4,6 +4,10 @@ const auth = require("../controllers/auth");
 const createVideoRouter = require("../routes/video/create");
 const getVideoRouter = require("../routes/video/get");
 const getVideosRouter = require("../routes/video/list");
+
+// Audio
+const createAudioRouter = require("../routes/audio/create");
+
 // Thumbnails
 const createThumbnailRouter = require("../routes/thumbnail/create");
 // content
@@ -20,6 +24,9 @@ const routes = [
   router.get("/api/video/:id", auth, getVideoRouter),
   router.get("/api/video/", auth, getVideosRouter),
   router.post("/api/video/", auth, createVideoRouter),
+
+  // Audio
+  router.post("/api/audio/", auth, createAudioRouter),
 
   // Thumbnail
   router.post("/api/thumbnail/", auth, createThumbnailRouter),

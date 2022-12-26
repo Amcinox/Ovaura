@@ -1,25 +1,15 @@
-const { callPostApi } = require("../../startup/axios");
-const path = require("../../utils/paths");
+const createImage = require("../../controllers/generator/image");
 
 module.exports = async (req, res) => {
-  const { keywords } = req.body;
-  const data = {
-    prompt: `a youtube video thumbnail of a ${keywords.join(", ")}"`,
-    n: 2,
-    size: "512x512",
-  };
+  const { prompt } = req.body;
   try {
-    const response = await callPostApi({ url: path.generateImage(), data });
-    const imageUrl = response.data[0].url;
-    res.send({ imageUrl });
+    const completion = await createImage({
+      prompt,
+    });
+    res.send(completion);
   } catch (error) {
     console.log({ error });
     res.statusCode = 400;
     res.send({ message: "error" });
   }
-
-  //   // demo
-  //   res.send({
-  //     imageUrl: "https://i.ytimg.com/vi/_wlEo2Opaw0/maxresdefault.jpg",
-  //   });
 };

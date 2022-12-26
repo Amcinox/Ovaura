@@ -16,14 +16,21 @@
   "author": "Simo EL BSSIR",
   "license": "ISC",
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@magenta/music": "^1.23.1",
     "axios": "^1.2.1",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "fluent-ffmpeg": "^2.1.2",
     "helmet": "^6.0.1",
+    "install": "^0.13.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "npm": "^9.2.0",
+    "openai": "^3.1.0",
+    "request": "^2.88.2"
   }
 }
