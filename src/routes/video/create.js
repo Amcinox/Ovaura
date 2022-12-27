@@ -21,12 +21,12 @@ module.exports = async (req, res) => {
     });
 
     // Generate Title
-    await createTitle({
+    const title = await createTitle({
       prompt,
     });
 
     // Generate Description
-    await createDescription({
+    const description = await createDescription({
       prompt,
     });
 

@@ -23,6 +23,4 @@ const youtube = google.youtube({
   auth,
 });
 
-// ;
-
 module.exports = youtube;
