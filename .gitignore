@@ -8,6 +8,13 @@ lerna-debug.log*
 .pnpm-debug.log*
 .DS_Store
 
+
+# output directory
+src/assets/video
+src/assets/images
+src/assets/audio
+
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
