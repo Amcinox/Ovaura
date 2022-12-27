@@ -1,7 +1,7 @@
 const youtube = require("../../models/google");
 const fs = require("fs");
 
-async function uploadVideo(filePath, fileName) {
+async function uploadVideo({ filePath, title, description }) {
   const fileSize = fs.statSync(filePath).size;
   const res = youtube.videos.insert(
     {
@@ -9,8 +9,8 @@ async function uploadVideo(filePath, fileName) {
       notifySubscribers: false,
       requestBody: {
         snippet: {
-          title: fileName,
-          description: "This is a test video uploaded via the YouTube API",
+          title,
+          description,
         },
         status: {
           privacyStatus: "private",
@@ -31,11 +31,9 @@ async function uploadVideo(filePath, fileName) {
   );
 
   return {
-    youtubeData: res.data.snippet,
     fileData: {
       filePath,
       fileSize,
-      fileName,
     },
   };
 }
