@@ -1,14 +1,20 @@
 const openai = require("../../models/openai");
 
-async function createImage({ prompt, n = 2, size = "512x512" }) {
+async function createImage({ prompt, n = 1, size = "1024x1024" }) {
   const data = {
     prompt,
     n,
     size,
   };
   try {
-    const completion = await openai.createImage(data);
-    return completion.data.data;
+    // return [
+    //   {
+    //     url: "https://images.indianexpress.com/2021/06/YouTube-logo.jpg",
+    //   },
+    // ];
+
+    const image = await openai.createImage(data);
+    return image.data.data;
   } catch (error) {
     throw new Error(error);
   }

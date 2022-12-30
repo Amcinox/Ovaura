@@ -17,7 +17,7 @@ require("./startup/routes")(app);
 app.all("*", async (req, res) => {
   console.log(req.protocol + "://" + req.get("host") + req.originalUrl);
   res.send("Error ");
-  // throw new NotFoundError();
+  throw new NotFoundError();
 });
 
 module.exports.app = app;
